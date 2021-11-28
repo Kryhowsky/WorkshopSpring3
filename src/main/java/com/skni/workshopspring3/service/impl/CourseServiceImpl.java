@@ -7,6 +7,8 @@ import com.skni.workshopspring3.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService {
@@ -15,6 +17,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Course addCourse(String title, Integer year, String university, CourseTypeEnum courseType) {
-        return null;
+        return courseRepository.save(new Course(title, year, university, courseType));
     }
+
 }

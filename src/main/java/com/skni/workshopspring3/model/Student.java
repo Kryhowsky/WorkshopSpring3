@@ -1,8 +1,6 @@
 package com.skni.workshopspring3.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,19 +9,27 @@ import java.time.LocalDate;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     private String firstName;
+
+    @NonNull
     private String lastName;
+
+    @NonNull
     private LocalDate dateOfBirth;
 
-    @Enumerated
+    @NonNull
+    @Enumerated(EnumType.STRING)
     private GenderEnum gender;
 
+    @NonNull
     @ManyToOne
     Course course;
 }

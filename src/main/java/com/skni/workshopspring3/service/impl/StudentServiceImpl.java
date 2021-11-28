@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,26 +21,33 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student addStudent(String firstName, String lastName, LocalDate birthDate, GenderEnum gender, Course course) {
-        return null;
+        return studentRepository.save(new Student(firstName, lastName, birthDate, gender, course));
     }
 
     @Override
     public List<Student> findAllByLastName(String lastName) {
-        return null;
+        return studentRepository.findAllByLastName(lastName);
     }
 
     @Override
     public Student getStudentByGenderAndByCourseType(GenderEnum gender, CourseTypeEnum courseType) {
-        return null;
+        return studentRepository.findStudentByGenderAndCourse_CourseType(gender, courseType);
     }
 
     @Override
     public List<Student> getAllStudents() {
-        return null;
+        return studentRepository.findAll();
     }
 
     @Override
     public boolean deleteStudentById(Long id) {
-        return false;
+        Optional<Student> student = studentRepository.findById(id);
+
+        if (student.isEmpty()) {
+            return false;
+        }
+
+        studentRepository.delete(student.get());
+        return true;
     }
 }
