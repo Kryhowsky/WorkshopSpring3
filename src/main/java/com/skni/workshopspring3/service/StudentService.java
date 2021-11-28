@@ -15,4 +15,6 @@ public interface StudentService {
     List<Student> getAllStudents();
     boolean deleteStudentById(Long id);
 
+    List<Student> findByYearOfBirthAndGender(Integer yearOfBirth, GenderEnum gender);
+
 }

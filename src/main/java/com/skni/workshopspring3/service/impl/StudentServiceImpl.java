@@ -50,4 +50,9 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.delete(student.get());
         return true;
     }
+
+    @Override
+    public List<Student> findByYearOfBirthAndGender(Integer yearOfBirth, GenderEnum gender) {
+        return studentRepository.findByYearOfBirthAndGender(yearOfBirth, gender.name());
+    }
 }

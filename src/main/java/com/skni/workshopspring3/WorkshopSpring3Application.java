@@ -53,6 +53,8 @@ public class WorkshopSpring3Application {
 			System.out.println(studentService.deleteStudentById(studentMale.getId()));
 			System.out.println(studentService.getAllStudents());
 
+			System.out.println(studentService.findByYearOfBirthAndGender(1993, GenderEnum.FEMALE));
+
 		};
 	}
 }
