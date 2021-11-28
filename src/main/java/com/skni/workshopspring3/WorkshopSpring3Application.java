@@ -1,10 +1,17 @@
 package com.skni.workshopspring3;
 
-import java.time.LocalDate;
+import com.skni.workshopspring3.model.Course;
+import com.skni.workshopspring3.model.CourseTypeEnum;
+import com.skni.workshopspring3.model.GenderEnum;
+import com.skni.workshopspring3.model.Student;
+import com.skni.workshopspring3.service.CourseService;
+import com.skni.workshopspring3.service.StudentService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class WorkshopSpring3Application {
@@ -43,7 +50,7 @@ public class WorkshopSpring3Application {
 			System.out.println(studentService.getStudentByGenderAndByCourseType(GenderEnum.FEMALE, CourseTypeEnum.LICENCJAT));
 
 			System.out.println(studentService.getAllStudents());
-			System.out.println(studentService.deleteStudentById(student.getId()));
+			System.out.println(studentService.deleteStudentById(studentMale.getId()));
 			System.out.println(studentService.getAllStudents());
 
 		};
